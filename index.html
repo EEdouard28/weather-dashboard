@@ -2,34 +2,42 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/style/style.css" />
 </head>
+
 <body>
     <div class="header">
         <h1>Weather Dashboard</h1>
-        </div>
+    </div>
 
-    <div class="aside-section">
-        <div class="search">
-            <h2>Search for a City:</h2>
+    <div class="aside-section flex-column">
+        <div class="searchBar">
+            <h2 id="search-Header">Search for a City:</h2>
             <input type="text" class="search-bar">
-            <button>
 
+            <button class="searchBtn">
+                Search
             </button>
         </div>
 
         <div class="nav-bar">
 
             <div class="cities">
-                 <div id="city-nav-bar">
-
-                 </div>
+                <div id="city-nav-bar">
+                    <p>New York City</p>
+                    <p>Miami</p>
+                    <P>Chicago</P>
+                    <P>Los Angeles</P>
+                </div>
             </div>
         </div>
+        <div id="currentWeather"></div>
+        <div id="forecastWeather"></div>
     </div>
 
 
