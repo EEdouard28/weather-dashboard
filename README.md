@@ -16,4 +16,4 @@ This calendar is desktop and mobile compatible.
 
 ## Test
 
-Visit the webpage through the link:
+Visit the webpage through the link: https://eedouard28.github.io/weather-dashboard/
