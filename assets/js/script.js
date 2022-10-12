@@ -47,20 +47,26 @@ function forecastWeather(lat, lon) {
                 var card = $("<div>").addClass(".card").addClass(".list-group")
                 var ul = $("<ul>");
                 var li = $("<li>");
+                var date = $("<h3>").text("date: " + new Date(data.list[i].dt_txt))
                 var temp = $("<h3>").text("temp: " + data.list[i].main.temp)
                 var humid = $("<h3>").text("humidity: " + data.list[i].main.humidity)
                 var wind = $("<h3>").text("wind: " + data.list[i].wind.speed)
 
                 $("#forecastWeather").append(card)
-                card.append(temp, humid, wind)
+                card.append(date, temp, humid, wind)
+                console.log(data.list)
                 // console.log(data.list.length)
                 // card.append(ul)
                 // li.text("temp")
                 // $(".temp-item").append(temp)
             }
         })
-    console.log(lat, lon)
+   
 }
+
+
+// figure out how to add dates
+
 
 // var forecastTemp =
   
