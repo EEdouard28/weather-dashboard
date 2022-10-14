@@ -1,37 +1,4 @@
 * {
     box-sizing: border-box;
-}
-
-.header {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 30px;
-    background: linear-gradient(29deg, rgba(255, 132, 21, 0.8748656876790831) 50%, rgba(255, 194, 0, 1) 97%);
-    color: white;
-}
-
-h1 {
-    padding-top: 35px;
-    padding-bottom: 20px;
-    font-weight: bold;
-}
-
-.aside-section {
-    display: flex;
-    padding-left: 15px;
-    margin-right: 40px;
-}
-
-#search-Header {
-    font-weight: bold;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.searchBar {
-    border-radius: 25px;
-}
-
-.current {
-    color: red;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }

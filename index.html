@@ -6,63 +6,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="./assets/style/style.css" />
+    <title>Weather Dashboard</title>
 </head>
 
 <body>
-    <div class="header">
-        <h1>Weather Dashboard</h1>
-    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 bg-info">
+                <h3 class="mt-1 text-light">Search Your City:</h3>
+                <div class="input-group-sm mb-1">
+                    <input id="enter-location" type="text" class="form-control" placeholder="City"
+                        aria-label="Enter a city">
+                    <div class="input-group-append">
+                        <button class="btn btn-dark" type="button" id="searchBtn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
 
-    <div class="aside-section flex-column">
-        <div class="searchBar">
-            <h2 id="search-Header">Search for a City:</h2>
-            <input type="text" class="search-bar">
-
-            <button class="searchBtn">
-                Search
-            </button>
-        </div>
-
-        <div class="nav-bar">
-
-            <div class="cities">
-                <div id="city-nav-bar">
-                    <p>New York City</p>
-                    <p>Miami</p>
-                    <P>Chicago</P>
-                    <P>Los Angeles</P>
+            </div>
+            <!-- WEATHER DASHBOARD -->
+            <div class="col-lg-9">
+                <!-- Current Search -->
+                <div class="row mr-0>
+                    <div class=" col-lg-12 card m-2 d-none" id="current-weather">
+                    <div class="weather-card">
+                        <h1 id="city-name" class="city-name align-middle"></h1>
+                        <img id="current-pic" alt="">
+                        <p id="temperature"></p>
+                        <p id="humidity"></p>
+                        <p id="wind-speed"></p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="currentWeather"></div>
 
-        <div class="forecastWeather">
-            <div id="weatherCard">Day 1 goes here</div>
-        </div>
-        <!-- Weather cards -->
-        <!-- <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">10/12/2022</h5>
+
+            <!-- FIVE DAY FORECAST -->
+            <div class="row d-none" id="fiveday-forecast">
+                <div class="col-12">
+                    <h2>5-Day Forecast</h2>
+                </div>
             </div>
-            <ul id="Day1" class="list-group-flush">
-                <li class="temp-item">Temp:</li>
-                <li class="humid-item">Humidity:</li>
-                <li class="wind-item">Wind:</li>
-            </ul>
-        </div> -->
-
-    </div>
-
+            <div class="row">
+                <div class="col-sm-8 fiveday bg-info text-white m-2 rounded-bottom"></div>
+                <div class="col-sm-8 fiveday bg-info text-white m-2 rounded-bottom"></div>
+                <div class="col-sm-8 fiveday bg-info text-white m-2 rounded-bottom"></div>
+                <div class="col-sm-8 fiveday bg-info text-white m-2 rounded-bottom"></div>
+                <div class="col-sm-8 fiveday bg-info text-white m-2 rounded-bottom"></div>
+            </div>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="./assets/js/script.js"></script>
-
+            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+            <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
