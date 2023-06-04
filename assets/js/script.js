@@ -1,84 +1,98 @@
-//DEPENDENCIES
+// DEPENDENCIES
 
-//Weather API Key
+// Weather API Key
 var APIKey = "d235a5db7da2633ff6e09047c8261443";
 
-//VARIABLES for search bar
+// VARIABLES for search bar
 var searchEl = document.getElementById("searchBtn");
 var locationEl = document.getElementById("enter-location");
 var cityEl = document.getElementById("city-name");
 
-//VARIABLES to retrieve current weather & forecasy
+// VARIABLES to retrieve current weather & forecast
 var todaysTempEl = document.getElementById("temperature");
 var todaysHumidityEl = document.getElementById("humidity");
 var todaysWindEl = document.getElementById("wind-speed");
 var todaysweatherEl = document.getElementById("current-weather");
 var forecastEl = document.getElementById("fiveday-forecast");
 
-
-
-//Function to retrieve current weather
+// Function to retrieve current weather
 function getWeather(cityName) {
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIKey;
-    axios.get(queryURL)
+  var queryURL =
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    cityName +
+    "&appid=" +
+    APIKey;
+  axios
+    .get(queryURL)
+    .then(function (response) {
+      todaysweatherEl.classList.remove("d-none");
+
+      // Current weather date
+      var currentDate = new Date(response.data.dt * 1000);
+      var day = currentDate.getDate();
+      var month = currentDate.getMonth() + 1;
+      var year = currentDate.getFullYear();
+      cityEl.innerHTML =
+        response.data.name + " (" + month + "/" + day + "/" + year + ") ";
+
+      // Current weather data in HTML
+      todaysTempEl.innerHTML =
+        "Temperature: " + response.data.main.temp + " &#176F";
+      todaysHumidityEl.innerHTML =
+        "Humidity: " + response.data.main.humidity + "%";
+      todaysWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
+
+      // Function to retrieve Weather Forecast in the area
+      var cityID = response.data.id;
+      var forecastWeather =
+        "https://api.openweathermap.org/data/2.5/forecast?id=" +
+        cityID +
+        "&appid=" +
+        APIKey;
+      axios
+        .get(forecastWeather)
         .then(function (response) {
-            todaysweatherEl.classList.remove("d-none");
+          forecastEl.classList.remove("d-none");
 
-            //Current weather date
-            var currentDate = new Date(response.data.dt * 1000);
-            var day = currentDate.getDate();
-            var month = currentDate.getMonth() + 1;
-            var year = currentDate.getFullYear();
-            cityEl.innerHTML = response.data.name + " (" + month + "/" + day + "/" + year + ") ";
+          var forecastEls = document.querySelectorAll(".fiveday");
+          for (var i = 0; i < forecastEls.length; i++) {
+            forecastEls[i].innerHTML = "";
+            var forecastIndex = i * 8 + 4;
+            var forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
+            var forecastDay = forecastDate.getDate();
+            var forecastMonth = forecastDate.getMonth() + 1;
+            var forecastYear = forecastDate.getFullYear();
+            var forecastDateEl = document.createElement("p");
 
-            //current weather data in data of HTML API
-            todaysTempEl.innerHTML = "Temperature: " + response.data.main.temp + " &#176F";
-            todaysHumidityEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
-            todaysWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
+            forecastDateEl.innerHTML =
+              forecastMonth + "/" + forecastDay + "/" + forecastYear;
+            forecastEls[i].append(forecastDateEl);
 
-            // Function to retrieve Weather Forecast In Area
-            var cityID = response.data.id;
-            var forecastWeather = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + APIKey;
-            axios.get(forecastWeather)
-                .then(function (response) {
-                    forecastEl.classList.remove("d-none");
+            // Providing 5-day forecast information in containers
+            var forecastWeatherEl = document.createElement("img");
+            forecastEls[i].append(forecastWeatherEl);
 
-                    var forecastEls = document.querySelectorAll(".fiveday");
-                    for (i = 0; i < forecastEls.length; i++) {
-                        forecastEls[i].innerHTML = "";
-                        var forecastIndex = i * 8 + 4;
-                        var forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
-                        var forecastDay = forecastDate.getDate();
-                        var forecastMonth = forecastDate.getMonth() + 1;
-                        var forecastYear = forecastDate.getFullYear();
-                        var forecastDateEl = document.createElement("p");
+            var forecastTempEl = document.createElement("p");
+            forecastTempEl.innerHTML =
+              "Temp: " +
+              response.data.list[forecastIndex].main.temp +
+              " &#176F";
+            forecastEls[i].append(forecastTempEl);
 
-                        forecastDateEl.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
-                        forecastEls[i].append(forecastDateEl);
-
-                        //Providing 5 day forecast information in containers
-                        var forecastWeatherEl = document.createElement("img");
-                        forecastEls[i].append(forecastWeatherEl);
-
-                        var forecastTempEl = document.createElement("p");
-                        forecastTempEl.innerHTML = "Temp: " + (response.data.list[forecastIndex].main.temp) + " &#176F";
-                        forecastEls[i].append(forecastTempEl);
-
-                        var forecastHumidityEl = document.createElement("p");
-                        forecastHumidityEl.innerHTML = "Humidity: " + response.data.list[forecastIndex].main.humidity + "%";
-                        forecastEls[i].append(forecastHumidityEl);
-                    }
-                })
+            var forecastHumidityEl = document.createElement("p");
+            forecastHumidityEl.innerHTML =
+              "Humidity: " +
+              response.data.list[forecastIndex].main.humidity +
+              "%";
+            forecastEls[i].append(forecastHumidityEl);
+          }
         });
+    });
 }
 
-
-//search button listener
+// Search button listener
 searchEl.addEventListener("click", function () {
-    var searchTerm = locationEl.value;
-    getWeather(searchTerm);
-    searchHistory.push(searchTerm);
-})
-
-
-
+  var searchTerm = locationEl.value;
+  getWeather(searchTerm);
+  searchHistory.push(searchTerm);
+});
