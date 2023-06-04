@@ -1,4 +1,95 @@
-* {
-    box-sizing: border-box;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+/* Global Styles */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-wrapper {
+  max-width: 600px;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+.text-light {
+  color: #ffffff;
+}
+
+.bg-info {
+  background-color: #17a2b8;
+}
+
+.mt-1 {
+  margin-top: 10px;
+}
+
+.mb-1 {
+  margin-bottom: 10px;
+}
+
+.m-2 {
+  margin: 20px;
+}
+
+.p-2 {
+  padding: 20px;
+}
+
+.rounded-bottom {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* Search Bar Styles */
+
+#enter-location {
+  width: 100%;
+}
+
+/* Current Weather Styles */
+
+.weather-card {
+  text-align: center;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#current-pic {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+}
+
+/* Five Day Forecast Styles */
+
+#fiveday-forecast {
+  margin-top: 20px;
+}
+
+.fiveday {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Link Styles */
+
+a {
+  color: #17a2b8;
+}
+
+a:hover {
+  color: #138496;
+  text-decoration: none;
 }
