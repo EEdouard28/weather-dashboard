@@ -1,19 +1,21 @@
-# Weather Dashboard By Evince Edouard
+# Weather Dashboard 
 
-## Descriptions
+## Description
 
-Our weather dashboard provides you with a live 5 day forcecast of your current city. This app is built using Open Weather API for the most accurate weather in your area.
+The Weather Dashboard by Evince Edouard is a powerful application that provides users with real-time 5-day weather forecasts for their current city. It leverages the Open Weather API, ensuring the utmost accuracy in weather data for any location.
 
-Our app is built utilizing HTML, CSS, Bootstrap, and JavaScript
+This application is built using a combination of HTML, CSS, Bootstrap, and JavaScript, resulting in a seamless and visually appealing user interface.
 
 ## Usage
 
-In the Aside section search through various cities in the country to find out the current weather in your requested location. 
+The Weather Dashboard offers a user-friendly interface that allows users to effortlessly search for weather information in various cities around the world. By utilizing the search functionality in the "Aside" section, users can retrieve up-to-date weather details for their requested location.
 
-This calendar is desktop and mobile compatible.
+This application is designed to be compatible with both desktop and mobile devices, allowing users to access weather information on the go.
 
 ## Screenshot
 
+
+
 ## Test
 
-Visit the webpage through the link: https://eedouard28.github.io/weather-dashboard/
+To experience the Weather Dashboard firsthand, visit the webpage using the following link: [https://eedouard28.github.io/weather-dashboard/](https://eedouard28.github.io/weather-dashboard/)
