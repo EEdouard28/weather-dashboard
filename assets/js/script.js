@@ -36,8 +36,10 @@ function getWeather(cityName) {
         response.data.name + " (" + month + "/" + day + "/" + year + ") ";
 
       // Current weather data in HTML
+      var temperatureInKelvin = response.data.main.temp;
+      var temperatureInFahrenheit = ((temperatureInKelvin - 273.15) * 9) / 5 + 32;
       todaysTempEl.innerHTML =
-        "Temperature: " + response.data.main.temp + " &#176F";
+        "Temperature: " + temperatureInFahrenheit.toFixed(2) + " &#176F";
       todaysHumidityEl.innerHTML =
         "Humidity: " + response.data.main.humidity + "%";
       todaysWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
@@ -73,10 +75,10 @@ function getWeather(cityName) {
             forecastEls[i].append(forecastWeatherEl);
 
             var forecastTempEl = document.createElement("p");
+            var forecastTempInKelvin = response.data.list[forecastIndex].main.temp;
+            var forecastTempInFahrenheit = ((forecastTempInKelvin - 273.15) * 9) / 5 + 32;
             forecastTempEl.innerHTML =
-              "Temp: " +
-              response.data.list[forecastIndex].main.temp +
-              " &#176F";
+              "Temp: " + forecastTempInFahrenheit.toFixed(2) + " &#176F";
             forecastEls[i].append(forecastTempEl);
 
             var forecastHumidityEl = document.createElement("p");
