@@ -13,6 +13,7 @@ The Weather Dashboard offers a user-friendly interface that allows users to effo
 This application is designed to be compatible with both desktop and mobile devices, allowing users to access weather information on the go.
 
 ## Screenshot
+![Screenshot Capture - 2022-10-13 - 23-41-06](https://user-images.githubusercontent.com/111817163/195757243-8e4e2551-ed82-428e-8617-58c257f3722d.png)
 
 
 
